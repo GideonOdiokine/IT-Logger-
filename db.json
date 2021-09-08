@@ -34,6 +34,13 @@
       "tech": "John",
       "date": "2021-09-08T02:21:50.600Z",
       "id": 5
+    },
+    {
+      "message": "Fixed Crutech Hard drive",
+      "attention": true,
+      "tech": "Gideon",
+      "date": "2021-09-08T02:23:08.366Z",
+      "id": 6
     }
   ],
   "techs": [
