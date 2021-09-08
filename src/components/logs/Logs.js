@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+
+import { connect } from "react-redux";
 import LogItem from "./LogItem";
 import PreLoader from "../layout/PreLoader";
+import { getLogs } from "../../actions/logActions";
 
-const Logs = () => {
-  const [logs, setLogs] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const getLogs = async () => {
-    setLoading(true);
-    const res = await axios.get("/logs");
-    setLogs(res.data);
-    setLoading(false);
-  };
-
+const Logs = ({ log: { logs, loading }, getLogs }) => {
   useEffect(() => {
     getLogs();
   }, []);
 
-  if (loading) {
+  if (loading || logs === null) {
     return <PreLoader />;
   }
   return (
@@ -35,4 +27,7 @@ const Logs = () => {
   );
 };
 
-export default Logs;
+const mapStateToProps = (state) => ({
+  log: state.log,
+});
+export default connect(mapStateToProps, { getLogs })(Logs);
