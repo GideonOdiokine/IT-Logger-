@@ -11,14 +11,15 @@ import EditModalLog from "./components/logs/EditModalLog";
 import AddTechModal from "./components/techs/AddTechModal";
 import TechListModal from "./components/techs/TechListModal";
 import { Provider } from "react-redux";
-import store
+import store from "./store";
 
 const App = () => {
   useEffect(() => {
     M.AutoInit();
   });
   return (
-    <Fragment>
+  <Provider store={store}>
+      <Fragment>
       <SearchBar />
       <div className="container">
         <AddBtn />
@@ -29,6 +30,7 @@ const App = () => {
         <EditModalLog />
       </div>
     </Fragment>
+  </Provider>
   );
 };
 
