@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import { connect } from "react-redux";
+import { addLog } from "../../actions/logActions";
 
-const AddLogModal = () => {
+const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
 
   const onSubmit = () => {
-    if (message !== "" || tech !== "") {
-      console.log(attention, message, tech);
-      setMessage("");
-      setAttention("");
-      setTech("");
-    } else {
+    if (message === "" || tech === "") {
       M.toast({ html: "Please enter a message and tech" });
+    } else {
+      const newLog = {
+        message,
+        attention,
+        tech,
+        date: new Date(),
+      };
+      addLog(newLog);
+      M.toast({ html: `Log added by ${tech}` });
+      setMessage("");
+      setAttention(false);
+      setTech("");
     }
   };
   return (
@@ -83,4 +92,4 @@ const modalStyle = {
   height: "75%",
 };
 
-export default AddLogModal;
+export default connect(null, { addLog })(AddLogModal);

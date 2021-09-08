@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import { connect } from "react-redux";
 import LogItem from "./LogItem";
 import PreLoader from "../layout/PreLoader";
@@ -8,7 +7,7 @@ import { getLogs } from "../../actions/logActions";
 const Logs = ({ log: { logs, loading }, getLogs }) => {
   useEffect(() => {
     getLogs();
-  }, []);
+  }, [getLogs, logs]);
 
   if (loading || logs === null) {
     return <PreLoader />;
@@ -19,7 +18,9 @@ const Logs = ({ log: { logs, loading }, getLogs }) => {
         <h4 className="center">System Logs</h4>
       </li>
       {!loading && logs.length === 0 ? (
-        <p>No logs to show...</p>
+        <p className="center">
+          <b>No logs to show...</b>
+        </p>
       ) : (
         logs.map((log) => <LogItem key={log.id} log={log} />)
       )}
