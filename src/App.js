@@ -10,6 +10,8 @@ import AddLogModal from "./components/logs/AddLogModal";
 import EditModalLog from "./components/logs/EditModalLog";
 import AddTechModal from "./components/techs/AddTechModal";
 import TechListModal from "./components/techs/TechListModal";
+import { Provider } from "react-redux";
+import store
 
 const App = () => {
   useEffect(() => {
