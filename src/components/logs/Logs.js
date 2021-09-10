@@ -7,8 +7,7 @@ import { getLogs } from "../../actions/logActions";
 const Logs = ({ log: { logs, loading }, getLogs }) => {
   useEffect(() => {
     getLogs();
-    /* eslint-disable */
-  }, []);
+  });
 
   if (loading || logs === null) {
     return <PreLoader />;

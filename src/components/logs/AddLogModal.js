@@ -80,7 +80,7 @@ const AddLogModal = ({ addLog }) => {
           onClick={onSubmit}
           className="modal-close waves-effect blue waves-light btn "
         >
-          Enter
+          Submit
         </a>
       </div>
     </div>

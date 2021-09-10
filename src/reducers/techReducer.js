@@ -1,40 +1,39 @@
 import {
-  GET_LOGS,
+  GET_TECHS,
+  DELETE_TECH,
   SET_LOADING,
-  LOGS_ERROR,
-  ADD_LOG,
-  DELETE_LOG,
+  ADD_TECH,
+  TECHS_ERROR,
 } from "../actions/types";
 
 const initialState = {
-  logs: null,
-  loading: false,
-  current: null,
+  techs: [],
   error: null,
+  loading: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_LOGS:
+    case GET_TECHS:
       return {
         ...state,
-        logs: action.payload,
+        techs: action.payload,
         loading: false,
       };
-    case DELETE_LOG:
+    case ADD_TECH:
       return {
         ...state,
-        logs: state.logs.filter((log) => log.id !== action.payload),
+        techs: [...state, action.payload],
         loading: false,
       };
-    case ADD_LOG:
+    case DELETE_TECH:
       return {
         ...state,
-        logs: [...state.logs, action.payload],
+        techs: state.techs.filter((tech) => tech.id !== action.payload),
         loading: false,
       };
-    case LOGS_ERROR:
-      console.log(action.payload);
+
+    case TECHS_ERROR:
       return {
         ...state,
         error: action.payload,

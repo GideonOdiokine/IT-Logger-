@@ -1,42 +1,25 @@
 {
   "logs": [
     {
-      "message": "Work station 002 is running ",
-      "attention": false,
-      "tech": "Gideon",
-      "date": "2021-09-08T02:41:48.215Z",
+      "message": "Repair MIS Laptop",
+      "attention": true,
+      "tech": "John",
+      "date": "2021-09-08T20:57:05.211Z",
       "id": 1
     },
     {
       "message": "Fixed Crutech Hard drive",
       "attention": false,
-      "tech": "John",
-      "date": "2021-09-08T02:41:55.903Z",
-      "id": 2
-    },
-    {
-      "message": "Fixed Crutech Hard drive",
-      "attention": false,
       "tech": "Gideon",
-      "date": "2021-09-08T02:42:01.379Z",
-      "id": 3
+      "date": "2021-09-08T21:21:11.328Z",
+      "id": 2
     }
   ],
   "techs": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Doe"
-    },
-    {
-      "id": 2,
-      "firstName": "Sam",
-      "lastName": "Smith"
-    },
-    {
-      "id": 3,
-      "firstName": "Sara",
-      "lastName": "Wilson"
+      "firstName": "bbb",
+      "lastName": "bbb",
+      "id": 1
     }
   ]
 }
