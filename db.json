@@ -17,9 +17,14 @@
   ],
   "techs": [
     {
-      "firstName": "bbb",
-      "lastName": "bbb",
+      "firstName": "Gideon",
+      "lastName": "Odiokine",
       "id": 1
+    },
+    {
+      "firstName": "Nancy ",
+      "lastName": "Asiuloka",
+      "id": 2
     }
   ]
 }

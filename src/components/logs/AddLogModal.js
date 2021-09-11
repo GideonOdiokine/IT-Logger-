@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
 import { addLog } from "../../actions/logActions";
+import { getTechs } from "../../actions/techsActions";
 
-const AddLogModal = ({ addLog }) => {
+const AddLogModal = ({ techs: { techs, loading }, addLog, getTechs }) => {
+  console.log(techs);
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
@@ -51,8 +53,12 @@ const AddLogModal = ({ addLog }) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="Gideon">Gideon</option>
-              <option value="John">John</option>
+              {techs.map((tec) => (
+                <option>
+                  {tec.firstName}
+                  {""} {tec.lastName}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -80,7 +86,7 @@ const AddLogModal = ({ addLog }) => {
           onClick={onSubmit}
           className="modal-close waves-effect blue waves-light btn "
         >
-          Submit
+          Enter
         </a>
       </div>
     </div>
@@ -92,4 +98,8 @@ const modalStyle = {
   height: "75%",
 };
 
-export default connect(null, { addLog })(AddLogModal);
+const mapStateToProps = (state) => ({
+  techs: state.tech,
+});
+
+export default connect(mapStateToProps, { addLog, getTechs })(AddLogModal);

@@ -5,6 +5,19 @@
   font-family: sans-serif;
 }
 
-h4{
+h4 {
   font-size: 1.5rem;
+}
+@media (max-width: 600px) {
+  div.fixed-action-btn.direction-top {
+    opacity: 1;
+    transform: scale(1) translateY(0px) translateX(0px);
+  }
+  .fixed-action-btn ul {
+    visibility: visible;
+    opacity: 1;
+  }
+  .fixed-action-btn ul a.btn-floating {
+    opacity: 1 !important;
+  }
 }
