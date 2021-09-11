@@ -54,7 +54,7 @@ const AddLogModal = ({ techs: { techs, loading }, addLog, getTechs }) => {
                 Select Technician
               </option>
               {techs.map((tec) => (
-                <option>
+                <option key={tec.id}>
                   {tec.firstName}
                   {""} {tec.lastName}
                 </option>

@@ -13,6 +13,20 @@
       "tech": "Gideon",
       "date": "2021-09-08T21:21:11.328Z",
       "id": 2
+    },
+    {
+      "message": "Repair MIS Laptop",
+      "attention": false,
+      "tech": "Nancy Asiuloka",
+      "date": "2021-09-11T20:11:20.028Z",
+      "id": 3
+    },
+    {
+      "message": "Fixed Crutech Hard drive",
+      "attention": false,
+      "tech": "Nancy Asiuloka",
+      "date": "2021-09-11T20:15:55.213Z",
+      "id": 4
     }
   ],
   "techs": [
@@ -25,6 +39,11 @@
       "firstName": "Nancy ",
       "lastName": "Asiuloka",
       "id": 2
+    },
+    {
+      "firstName": "Richard",
+      "lastName": "Ingwe",
+      "id": 3
     }
   ]
 }
