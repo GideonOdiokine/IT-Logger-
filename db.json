@@ -1,18 +1,11 @@
 {
   "logs": [
     {
-      "message": "Repair MIS Laptop",
-      "attention": true,
-      "tech": "John",
-      "date": "2021-09-08T20:57:05.211Z",
-      "id": 1
-    },
-    {
       "id": 2,
-      "message": "Fixed Crutech Hard drive",
-      "attention": false,
-      "tech": "John",
-      "date": "2021-09-12T14:29:10.352Z"
+      "message": " Crutech Hard drive is not running",
+      "attention": true,
+      "tech": "Nancy Asiuloka",
+      "date": "2021-09-12T16:08:40.999Z"
     },
     {
       "message": "Fixed Crutech Hard drive",
@@ -37,6 +30,11 @@
       "firstName": "Nancy",
       "lastName": "Asiuloka",
       "id": 5
+    },
+    {
+      "firstName": "Favour ",
+      "lastName": "Odiokine",
+      "id": 6
     }
   ]
 }
