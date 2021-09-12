@@ -27,7 +27,7 @@ const EditModalLog = ({ updateLog, current }) => {
         tech,
         date: new Date(),
       };
-      M.toast({html:"Log is a"})
+      M.toast({html:""})
       updateLog(upLog);
       setMessage("");
       setAttention("");
