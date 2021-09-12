@@ -62,8 +62,13 @@ const EditModalLog = ({ techs: { techs }, updateLog, current, getTechs }) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="Gideon">Gideon</option>
-              <option value="John">John</option>
+              {techs.map((tec) => (
+                <option>
+                  {tec.firstName}
+                  {""}
+                  {tec.lastName}
+                </option>
+              ))}
             </select>
           </div>
         </div>
