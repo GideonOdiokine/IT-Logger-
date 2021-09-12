@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
 import { updateLog } from "../../actions/logActions";
+import { getTechs } from "../../actions/techsActions";
+
 import { useEffect } from "react";
 
-const EditModalLog = ({ updateLog, current }) => {
+const EditModalLog = ({ techs: { techs }, updateLog, current, getTechs }) => {
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
@@ -16,6 +18,7 @@ const EditModalLog = ({ updateLog, current }) => {
       setTech(current.tech);
     }
   }, [current]);
+
   const onSubmit = () => {
     if (message === "" || tech === "") {
       M.toast({ html: "Please enter message and tech" });
@@ -27,7 +30,7 @@ const EditModalLog = ({ updateLog, current }) => {
         tech,
         date: new Date(),
       };
-      M.toast({html:""})
+      M.toast({ html: `log is updated by ${tech}` });
       updateLog(upLog);
       setMessage("");
       setAttention("");
@@ -102,6 +105,7 @@ const modalStyle = {
 
 const mapStateToProps = (state) => ({
   current: state.log.current,
+  techs: state.tech,
 });
 
 export default connect(mapStateToProps, { updateLog })(EditModalLog);

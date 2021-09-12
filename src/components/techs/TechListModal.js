@@ -3,7 +3,7 @@ import TechList from "./TechList";
 import { connect } from "react-redux";
 import { getTechs } from "../../actions/techsActions";
 
-const TechListModal = ({ techs: { techs, loading }, getTechs }) => {
+const TechListModal = ({ techs: { techs, }, getTechs }) => {
   useEffect(() => {
     getTechs();
   });
