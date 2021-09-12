@@ -8,42 +8,35 @@
       "id": 1
     },
     {
+      "id": 2,
       "message": "Fixed Crutech Hard drive",
       "attention": false,
-      "tech": "Gideon",
-      "date": "2021-09-08T21:21:11.328Z",
-      "id": 2
+      "tech": "Richard Ingwe",
+      "date": "2021-09-12T14:26:48.293Z"
     },
     {
-      "message": "Repair MIS Laptop",
-      "attention": false,
+      "message": "Fixed Crutech Hard drive",
+      "attention": true,
       "tech": "Nancy Asiuloka",
-      "date": "2021-09-11T20:11:20.028Z",
+      "date": "2021-09-12T14:22:11.864Z",
       "id": 3
-    },
-    {
-      "message": "Fixed Crutech Hard drive",
-      "attention": false,
-      "tech": "Nancy Asiuloka",
-      "date": "2021-09-11T20:15:55.213Z",
-      "id": 4
     }
   ],
   "techs": [
     {
-      "firstName": "Gideon",
-      "lastName": "Odiokine",
-      "id": 1
-    },
-    {
-      "firstName": "Nancy ",
-      "lastName": "Asiuloka",
-      "id": 2
-    },
-    {
       "firstName": "Richard",
       "lastName": "Ingwe",
       "id": 3
+    },
+    {
+      "firstName": "John ",
+      "lastName": "Odiokine",
+      "id": 4
+    },
+    {
+      "firstName": "Nancy",
+      "lastName": "Asiuloka",
+      "id": 5
     }
   ]
 }
