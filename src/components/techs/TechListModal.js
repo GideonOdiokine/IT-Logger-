@@ -6,7 +6,7 @@ import { getTechs } from "../../actions/techsActions";
 const TechListModal = ({ techs: { techs, loading }, getTechs }) => {
   useEffect(() => {
     getTechs();
-  });
+  },[]);
 
   return (
     <div id="tech-list-modal" className="modal">

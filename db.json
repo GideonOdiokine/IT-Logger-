@@ -6,6 +6,20 @@
       "tech": "Nancy Asiuloka",
       "date": "2021-09-12T14:22:11.864Z",
       "id": 3
+    },
+    {
+      "message": "Repair MIS Laptop",
+      "attention": true,
+      "tech": "Favour Odiokine",
+      "date": "2021-09-12T21:30:03.077Z",
+      "id": 4
+    },
+    {
+      "message": "Work station 002 is running ",
+      "attention": false,
+      "tech": "John Odiokine",
+      "date": "2021-09-12T21:58:40.814Z",
+      "id": 5
     }
   ],
   "techs": [
@@ -28,6 +42,11 @@
       "firstName": "Favour ",
       "lastName": "Odiokine",
       "id": 6
+    },
+    {
+      "firstName": "Victoria ",
+      "lastName": "Odiokine",
+      "id": 7
     }
   ]
 }
