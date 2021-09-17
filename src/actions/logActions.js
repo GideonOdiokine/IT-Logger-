@@ -10,22 +10,22 @@ import {
   SEARCH_LOGS,
 } from "./types";
 import db from "../components/firebase/config";
+import { useState } from "react";
 
 export const getLogs = () => {
   return async (dispatch) => {
     try {
       setLoading();
-
+      const data = [];
       const res = await db.collection("logs").onSnapshot((snapshot) => {
         snapshot.docs.map((doc) => {
-          console.log(doc);
+          data.push(doc.data());
+          dispatch({
+            type: GET_LOGS,
+            payload: data,
+          });
         });
-      });
-      const data = await res.json();
-
-      dispatch({
-        type: GET_LOGS,
-        payload: data,
+        return res;
       });
     } catch (err) {
       dispatch({
