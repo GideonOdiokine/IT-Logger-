@@ -1,52 +1,49 @@
 {
   "logs": [
     {
+      "id": 1,
       "message": "Fixed Crutech Hard drive",
-      "attention": true,
-      "tech": "Nancy Asiuloka",
-      "date": "2021-09-12T14:22:11.864Z",
-      "id": 3
+      "attention": false,
+      "tech": "Mr Okwong Atte",
+      "date": "2021-09-17T08:43:33.999Z"
     },
     {
       "message": "Repair MIS Laptop",
-      "attention": true,
-      "tech": "Favour Odiokine",
-      "date": "2021-09-12T21:30:03.077Z",
-      "id": 4
+      "attention": false,
+      "tech": "John Odiokine",
+      "date": "2021-09-17T08:41:41.531Z",
+      "id": 2
     },
     {
       "message": "Work station 002 is running ",
       "attention": false,
+      "tech": "Nancy Asiuloka",
+      "date": "2021-09-17T08:46:15.744Z",
+      "id": 3
+    },
+    {
+      "message": "Work station 002 is running ",
+      "attention": true,
       "tech": "John Odiokine",
-      "date": "2021-09-12T21:58:40.814Z",
-      "id": 5
+      "date": "2021-09-17T10:13:05.449Z",
+      "id": 4
     }
   ],
   "techs": [
-    {
-      "firstName": "Richard",
-      "lastName": "Ingwe",
-      "id": 3
-    },
     {
       "firstName": "John ",
       "lastName": "Odiokine",
       "id": 4
     },
     {
-      "firstName": "Nancy",
-      "lastName": "Asiuloka",
+      "firstName": "Mr Okwong ",
+      "lastName": "Atte",
       "id": 5
     },
     {
-      "firstName": "Favour ",
-      "lastName": "Odiokine",
+      "firstName": "Nancy ",
+      "lastName": "Asiuloka",
       "id": 6
-    },
-    {
-      "firstName": "Victoria ",
-      "lastName": "Odiokine",
-      "id": 7
     }
   ]
 }

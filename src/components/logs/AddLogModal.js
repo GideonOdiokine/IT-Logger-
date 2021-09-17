@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addLog } from "../../actions/logActions";
 import { getTechs } from "../../actions/techsActions";
 
-const AddLogModal = ({ techs: { techs, loading }, addLog, getTechs }) => {
+const AddLogModal = ({ techs: { techs }, addLog, getTechs }) => {
   console.log(techs);
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);

@@ -9,13 +9,18 @@ import {
   UPDATE_LOG,
   SEARCH_LOGS,
 } from "./types";
+import db from "../components/firebase/config";
 
 export const getLogs = () => {
   return async (dispatch) => {
     try {
       setLoading();
 
-      const res = await fetch("/logs");
+      const res = await db.collection("logs").onSnapshot((snapshot) => {
+        snapshot.docs.map((doc) => {
+          console.log(doc);
+        });
+      });
       const data = await res.json();
 
       dispatch({
