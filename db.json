@@ -1,13 +1,6 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "Fixed Crutech Hard drive",
-      "attention": false,
-      "tech": "Mr Okwong Atte",
-      "date": "2021-09-17T08:43:33.999Z"
-    },
-    {
       "message": "Repair MIS Laptop",
       "attention": false,
       "tech": "John Odiokine",

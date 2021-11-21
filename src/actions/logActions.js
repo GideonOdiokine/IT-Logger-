@@ -9,28 +9,25 @@ import {
   UPDATE_LOG,
   SEARCH_LOGS,
 } from "./types";
-import db from "../components/firebase/config";
-import { useState } from "react";
+// import db from "../components/firebase/config";
+
 
 export const getLogs = () => {
   return async (dispatch) => {
     try {
       setLoading();
-      const data = [];
-      const res = await db.collection("logs").onSnapshot((snapshot) => {
-        snapshot.docs.map((doc) => {
-          data.push(doc.data());
-          dispatch({
-            type: GET_LOGS,
-            payload: data,
-          });
-        });
-        return res;
+  
+      const res = await fetch('/logs');
+      const data = await res.json();
+  
+      dispatch({
+        type: GET_LOGS,
+        payload: data
       });
     } catch (err) {
       dispatch({
         type: LOGS_ERROR,
-        payload: err.response,
+        payload: err.response.statusText
       });
     }
   };

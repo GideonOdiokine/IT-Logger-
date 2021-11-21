@@ -5,7 +5,7 @@ import PreLoader from "../layout/PreLoader";
 import { getLogs } from "../../actions/logActions";
 
 const Logs = ({ log: { logs, loading }, getLogs }) => {
-  console.log(logs);
+
   useEffect(() => {
     getLogs();
   }, []);
