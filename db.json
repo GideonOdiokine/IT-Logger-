@@ -1,20 +1,6 @@
 {
   "logs": [
     {
-      "message": "Repair MIS Laptop",
-      "attention": false,
-      "tech": "John Odiokine",
-      "date": "2021-09-17T08:41:41.531Z",
-      "id": 2
-    },
-    {
-      "message": "Work station 002 is running ",
-      "attention": false,
-      "tech": "Nancy Asiuloka",
-      "date": "2021-09-17T08:46:15.744Z",
-      "id": 3
-    },
-    {
       "message": "Work station 002 is running ",
       "attention": true,
       "tech": "John Odiokine",
@@ -23,10 +9,10 @@
     },
     {
       "message": "Work station 002 is running ",
-      "attention": true,
-      "tech": "Mr Okwong Atte",
-      "date": "2021-09-17T21:25:34.798Z",
-      "id": 5
+      "attention": false,
+      "tech": "John Odiokine",
+      "date": "2021-12-06T21:03:26.255Z",
+      "id": 7
     }
   ],
   "techs": [

@@ -6,9 +6,14 @@ import { getLogs } from "../../actions/logActions";
 
 const Logs = ({ log: { logs, loading }, getLogs }) => {
 
-  useEffect(() => {
+  const fetchData = () => {
     getLogs();
+  }
+  useEffect(() => {
+    fetchData()
+    // eslint-disable-next-line
   }, []);
+  // eslint-disable-next-line
 
   if (loading || logs === null) {
     return <PreLoader />;

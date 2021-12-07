@@ -26,7 +26,7 @@ const LogItem = ({ log, deleteLog, setCurrent }) => {
         <span className="grey-text">
           Last updated by
           <span className="black-text"> {log.tech}</span> on{" "}
-          <Moment format="MMMM Do YYYY, h:mm:ss a">{log.date.toDate()}</Moment>
+          <Moment format="MMMM Do YYYY, h:mm:ss a">{log.date}</Moment>
         </span>
         <a href="#!" className="secondary-content">
           <i className="material-icons grey-text" onClick={deleteLogItem}>

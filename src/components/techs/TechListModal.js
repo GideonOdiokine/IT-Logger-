@@ -4,10 +4,15 @@ import { connect } from "react-redux";
 import { getTechs } from "../../actions/techsActions";
 
 const TechListModal = ({ techs: { techs, loading }, getTechs }) => {
-  useEffect(() => {
-    getTechs();
-  },[]);
 
+  const fetchData = () => {
+    getTechs();
+  }
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
+  // eslint-disable-next-line
   return (
     <div id="tech-list-modal" className="modal">
       <div className="modal-content">
