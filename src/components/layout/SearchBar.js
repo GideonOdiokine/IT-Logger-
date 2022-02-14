@@ -33,4 +33,4 @@ const SearchBar = ({ searchLogs }) => {
   );
 };
 
-export default connect(null, { searchLogs })(SearchBar);
+export default SearchBar;

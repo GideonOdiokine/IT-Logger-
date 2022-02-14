@@ -21,7 +21,11 @@ const AddLogModal = ({ techs: { techs }, addLog, getTechs }) => {
         tech,
         createdAt: timestamp(),
       };
+<<<<<<< HEAD
       await addLog(newLog);
+=======
+     async addLog(newLog);
+>>>>>>> a45091e34a02eefc3d679fe02463c5d44768dc63
       M.toast({ html: `Log added by ${tech}` });
       setMessage("");
       setAttention(false);
