@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { connect } from "react-redux";
 // import { searchLogs } from "../../actions/logActions";
 
-const SearchBar = ({ searchLogs }) => {
+const SearchBar = () => {
   const text = useRef("");
 
   const onChange = (e) => {
