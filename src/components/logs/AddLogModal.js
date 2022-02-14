@@ -3,6 +3,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
 import { addLog } from "../../actions/logActions";
 import { getTechs } from "../../actions/techsActions";
+import { timestamp } from "../../firebase/config";
 
 const AddLogModal = ({ techs: { techs }, addLog, getTechs }) => {
   console.log(techs);
@@ -10,7 +11,7 @@ const AddLogModal = ({ techs: { techs }, addLog, getTechs }) => {
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (message === "" || tech === "") {
       M.toast({ html: "Please enter a message and tech" });
     } else {
@@ -18,9 +19,9 @@ const AddLogModal = ({ techs: { techs }, addLog, getTechs }) => {
         message,
         attention,
         tech,
-        date: new Date(),
+        createdAt: timestamp(),
       };
-      addLog(newLog);
+      await addLog(newLog);
       M.toast({ html: `Log added by ${tech}` });
       setMessage("");
       setAttention(false);

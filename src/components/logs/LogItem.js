@@ -1,15 +1,16 @@
 import React from "react";
 import Moment from "react-moment";
+// import { formatDistanceToNow } from "data-fns";
 import { connect } from "react-redux";
 import { deleteLog, setCurrent } from "../../actions/logActions";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 const LogItem = ({ log, deleteLog, setCurrent }) => {
-
   const deleteLogItem = () => {
     deleteLog(log.id);
     M.toast({ html: "Log deleted" });
   };
+
   return (
     <li className="collection-item">
       <div>
@@ -25,8 +26,8 @@ const LogItem = ({ log, deleteLog, setCurrent }) => {
         <br />
         <span className="grey-text">
           Last updated by
-          <span className="black-text"> {log.tech}</span> on{" "}
-          <Moment format="MMMM Do YYYY, h:mm:ss a">{log.date}</Moment>
+          <span className="black-text"> {log.tech}</span> on <span></span>
+          <Moment format="MMMM Do YYYY, h:mm:ss a">{log?.date}</Moment>
         </span>
         <a href="#!" className="secondary-content">
           <i className="material-icons grey-text" onClick={deleteLogItem}>

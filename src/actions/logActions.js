@@ -5,10 +5,11 @@ import {
   ADD_LOG,
   DELETE_LOG,
   UPDATE_LOG,
-  SEARCH_LOGS,
+  // SEARCH_LOGS,
   SET_CURRENT,
-  CLEAR_CURRENT
-} from './types';
+  CLEAR_CURRENT,
+} from "./types";
+import { db } from "../firebase/config";
 
 // export const getLogs = () => {
 //   return async dispatch => {
@@ -25,137 +26,147 @@ import {
 // };
 
 // Get logs from server
-export const getLogs = () => async dispatch => {
+export const getLogs = () => async (dispatch) => {
   try {
     setLoading();
+    await db.collection("logs").onSnapshot((snapshot) => {
+      let data = [];
 
-    const res = await fetch('/logs');
-    const data = await res.json();
-
-    dispatch({
-      type: GET_LOGS,
-      payload: data
+      snapshot.docs.map((doc) => {
+        data.push({ ...doc.data(), id: doc.id });
+        dispatch({
+          type: GET_LOGS,
+          payload: data,
+        });
+      });
     });
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.statusText
+      payload: err.message,
     });
   }
 };
 
 // Add new log
-export const addLog = log => async dispatch => {
+export const addLog = (log) => async (dispatch) => {
   try {
     setLoading();
 
-    const res = await fetch('/logs', {
-      method: 'POST',
-      body: JSON.stringify(log),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    const data = await res.json();
+    // const res = await fetch("/logs", {
+    //   method: "POST",
+    //   body: JSON.stringify(log),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
+    // const data = await res.json();
+    const data = await db.collection("logs").add(log);
 
     dispatch({
       type: ADD_LOG,
-      payload: data
+      payload: data,
     });
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.statusText
+      payload: err.message,
     });
   }
 };
 
 // Delete log from server
-export const deleteLog = id => async dispatch => {
+export const deleteLog = (id) => async (dispatch) => {
   try {
     setLoading();
 
-    await fetch(`/logs/${id}`, {
-      method: 'DELETE'
-    });
+    // await fetch(`/logs/${id}`, {
+    //   method: "DELETE",
+    // });
+    let data = await db.collection("logs").doc(id).delete();
 
     dispatch({
       type: DELETE_LOG,
-      payload: id
+      payload: data,
     });
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.statusText
+      payload: err.response.statusText,
     });
   }
 };
 
 // Update log on server
-export const updateLog = log => async dispatch => {
+export const updateLog = (log) => async (dispatch) => {
   try {
     setLoading();
 
-    const res = await fetch(`/logs/${log.id}`, {
-      method: 'PUT',
-      body: JSON.stringify(log),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+    // const res = await fetch(`/logs/${log.id}`, {
+    //   method: "PUT",
+    //   body: JSON.stringify(log),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
 
-    const data = await res.json();
+    // const data = await res.json();
+    let data = await db.collection("logs").doc(log.id).update({
+      "message": log.message,
+      "tech": log.tech,
+      "attention": log.attention,
+    });
 
     dispatch({
       type: UPDATE_LOG,
-      payload: data
+      payload: data,
     });
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.statusText
+      payload: err.message,
     });
   }
 };
 
 // Search server logs
-export const searchLogs = text => async dispatch => {
-  try {
-    setLoading();
+// export const searchLogs = (text) => async (dispatch) => {
+//   try {
+//     setLoading();
 
-    const res = await fetch(`/logs?q=${text}`);
-    const data = await res.json();
+//     const res = await fetch(`/logs?q=${text}`);
+//     const data = await res.json();
 
-    dispatch({
-      type: SEARCH_LOGS,
-      payload: data
-    });
-  } catch (err) {
-    dispatch({
-      type: LOGS_ERROR,
-      payload: err.response.statusText
-    });
-  }
-};
+//     dispatch({
+//       type: SEARCH_LOGS,
+//       payload: data,
+//     });
+//   } catch (err) {
+//     dispatch({
+//       type: LOGS_ERROR,
+//       payload: err.response.statusText,
+//     });
+//   }
+// };
 
 // Set current log
-export const setCurrent = log => {
+export const setCurrent = (log) => {
   return {
     type: SET_CURRENT,
-    payload: log
+    payload: log,
   };
 };
 
 // Clear current log
 export const clearCurrent = () => {
   return {
-    type: CLEAR_CURRENT
+    type: CLEAR_CURRENT,
   };
 };
 
 // Set loading to true
 export const setLoading = () => {
   return {
-    type: SET_LOADING
+    type: SET_LOADING,
   };
 };

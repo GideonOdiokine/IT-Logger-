@@ -5,12 +5,11 @@ import PreLoader from "../layout/PreLoader";
 import { getLogs } from "../../actions/logActions";
 
 const Logs = ({ log: { logs, loading }, getLogs }) => {
-
-  const fetchData = () => {
-    getLogs();
-  }
+  const fetchData = async () => {
+    await getLogs();
+  };
   useEffect(() => {
-    fetchData()
+    fetchData();
     // eslint-disable-next-line
   }, []);
   // eslint-disable-next-line
@@ -28,7 +27,7 @@ const Logs = ({ log: { logs, loading }, getLogs }) => {
           <b>No logs to show...</b>
         </p>
       ) : (
-        logs.map((log) => <LogItem key={log.message} log={log} />)
+        logs.map((log) => <LogItem key={log.createdAt} log={log} />)
       )}
     </ul>
   );

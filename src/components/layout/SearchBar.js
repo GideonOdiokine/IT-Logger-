@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
-import { searchLogs } from "../../actions/logActions";
+// import { searchLogs } from "../../actions/logActions";
 
 const SearchBar = ({ searchLogs }) => {
   const text = useRef("");
 
   const onChange = (e) => {
-    searchLogs(text.current.value);
+    // searchLogs(text.current.value);
+    alert("Sorry you are not allow to search...")
   };
 
   return (

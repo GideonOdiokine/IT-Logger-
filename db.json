@@ -8,11 +8,11 @@
       "id": 4
     },
     {
-      "message": "Work station 002 is running ",
-      "attention": false,
-      "tech": "John Odiokine",
-      "date": "2021-12-06T21:03:26.255Z",
-      "id": 7
+      "message": "Repair MIS Laptop",
+      "attention": true,
+      "tech": "Mr Okwong Atte",
+      "date": "2022-02-12T23:05:38.267Z",
+      "id": 5
     }
   ],
   "techs": [
@@ -30,6 +30,11 @@
       "firstName": "Nancy ",
       "lastName": "Asiuloka",
       "id": 6
+    },
+    {
+      "firstName": "Young",
+      "lastName": "John",
+      "id": 7
     }
   ]
 }

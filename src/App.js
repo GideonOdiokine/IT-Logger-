@@ -17,20 +17,25 @@ const App = () => {
   useEffect(() => {
     M.AutoInit();
   });
+  useEffect(() => {
+    window.addEventListener("offline", () => {
+      M.toast({ html: "Please make sure you check internet connection" });
+    });
+  }, []);
   return (
-  <Provider store={store}>
+    <Provider store={store}>
       <Fragment>
-      <SearchBar />
-      <div className="container">
-        <AddBtn />
-        <AddLogModal />
-        <AddTechModal />
-        <TechListModal />
-        <Logs />
-        <EditModalLog />
-      </div>
-    </Fragment>
-  </Provider>
+        <SearchBar />
+        <div className="container">
+          <AddBtn />
+          <AddLogModal />
+          <AddTechModal />
+          <TechListModal />
+          <Logs />
+          <EditModalLog />
+        </div>
+      </Fragment>
+    </Provider>
   );
 };
 
