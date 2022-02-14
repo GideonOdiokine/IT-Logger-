@@ -5,6 +5,7 @@ import {
   SET_LOADING,
   ADD_TECH,
 } from "../actions/types";
+import { db } from "../firebase/config";
 
 // Get Techs
 export const getTechs = () => {
@@ -12,17 +13,23 @@ export const getTechs = () => {
     try {
       setLoading();
 
-      const res = await fetch("/techs");
-      const data = await res.json();
+      // const res = await fetch("/techs");
+      // const data = await res.json();
+      await db.collection("techs").onSnapshot((snapshot) => {
+        let data = [];
 
-      dispatch({
-        type: GET_TECHS,
-        payload: data,
+        snapshot.docs.map((doc) => {
+          data.push({ ...doc.data(), id: doc.id });
+          dispatch({
+            type: GET_TECHS,
+            payload: data,
+          });
+        });
       });
     } catch (err) {
       dispatch({
         type: TECHS_ERROR,
-        payload: err,
+        payload: err.message,
       });
     }
   };
@@ -35,14 +42,15 @@ export const addTech = (tech) => {
     try {
       setLoading();
 
-      const res = await fetch("/techs", {
-        method: "POST",
-        body: JSON.stringify(tech),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
+      // const res = await fetch("/techs", {
+      //   method: "POST",
+      //   body: JSON.stringify(tech),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
+      // const data = await res.json();
+      const data = await db.collection("techs").add(tech);
 
       dispatch({
         type: ADD_TECH,
@@ -51,7 +59,7 @@ export const addTech = (tech) => {
     } catch (err) {
       dispatch({
         type: TECHS_ERROR,
-        payload: err,
+        payload: err.message,
       });
     }
   };
@@ -62,21 +70,22 @@ export const deleteTech = (id) => {
     try {
       setLoading();
 
-      await fetch(`/techs/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      // await fetch(`/techs/${id}`, {
+      //   method: "DELETE",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
+      let data = await db.collection("techs").doc(id).delete();
 
       dispatch({
         type: DELETE_TECH,
-        payload: id,
+        payload: data,
       });
     } catch (err) {
       dispatch({
         type: TECHS_ERROR,
-        payload: err,
+        payload: err.message,
       });
     }
   };
