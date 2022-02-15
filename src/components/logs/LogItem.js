@@ -6,8 +6,8 @@ import { deleteLog, setCurrent } from "../../actions/logActions";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 const LogItem = ({ log, deleteLog, setCurrent }) => {
-  const deleteLogItem = () => {
-    deleteLog(log.id);
+  const deleteLogItem = async () => {
+    await deleteLog(log.id);
     M.toast({ html: "Log deleted" });
   };
 
