@@ -18,7 +18,7 @@ export const getTechs = () => {
       await db.collection("techs").onSnapshot((snapshot) => {
         let data = [];
 
-        snapshot.docs.map((doc) => {
+        snapshot.docs.forEach((doc) => {
           data.push({ ...doc.data(), id: doc.id });
           dispatch({
             type: GET_TECHS,
@@ -76,11 +76,11 @@ export const deleteTech = (id) => {
       //     "Content-Type": "application/json",
       //   },
       // });
-      let data = await db.collection("techs").doc(id).delete();
+      await db.collection("techs").doc(id).delete();
 
       dispatch({
         type: DELETE_TECH,
-        payload: data,
+        payload: id,
       });
     } catch (err) {
       dispatch({

@@ -32,8 +32,9 @@ export const getLogs = () => async (dispatch) => {
     await db.collection("logs").onSnapshot((snapshot) => {
       let data = [];
 
-      snapshot.docs.map((doc) => {
+      snapshot.docs.forEach((doc) => {
         data.push({ ...doc.data(), id: doc.id });
+
         dispatch({
           type: GET_LOGS,
           payload: data,
@@ -83,11 +84,12 @@ export const deleteLog = (id) => async (dispatch) => {
     // await fetch(`/logs/${id}`, {
     //   method: "DELETE",
     // });
-    let data = await db.collection("logs").doc(id).delete();
+
+    await db.collection("logs").doc(id).delete();
 
     dispatch({
       type: DELETE_LOG,
-      payload: data,
+      payload: id,
     });
   } catch (err) {
     dispatch({
@@ -112,9 +114,9 @@ export const updateLog = (log) => async (dispatch) => {
 
     // const data = await res.json();
     let data = await db.collection("logs").doc(log.id).update({
-      "message": log.message,
-      "tech": log.tech,
-      "attention": log.attention,
+      message: log.message,
+      tech: log.tech,
+      attention: log.attention,
     });
 
     dispatch({
