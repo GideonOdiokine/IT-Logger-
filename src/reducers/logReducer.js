@@ -20,7 +20,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_LOGS:
-      console.log(state.logs);
       return {
         ...state,
         logs: action.payload,

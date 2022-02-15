@@ -5,8 +5,8 @@ import { getTechs } from "../../actions/techsActions";
 
 const TechListModal = ({ techs: { techs, loading }, getTechs }) => {
 
-  const fetchData = () => {
-    getTechs();
+  const fetchData =async () => {
+   await getTechs();
   }
   useEffect(() => {
     fetchData();

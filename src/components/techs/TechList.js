@@ -4,8 +4,8 @@ import { deleteTech } from "../../actions/techsActions";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 const TechList = ({ tech, deleteTech }) => {
-  const deleteTechItem = () => {
-    deleteTech(tech.id);
+  const deleteTechItem = async () => {
+   await deleteTech(tech.id);
     M.toast({ html: "Technician is removed" });
   };
   return (
