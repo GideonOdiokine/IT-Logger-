@@ -5,8 +5,8 @@ import PreLoader from "../layout/PreLoader";
 import { getLogs } from "../../actions/logActions";
 
 const Logs = ({ log: { logs, loading }, getLogs }) => {
-  const fetchData = async () => {
-    await getLogs();
+  const fetchData = () => {
+    getLogs();
   };
   useEffect(() => {
     fetchData();
@@ -27,7 +27,7 @@ const Logs = ({ log: { logs, loading }, getLogs }) => {
           <b>No logs to show...</b>
         </p>
       ) : (
-        logs.map((log, i) => <LogItem key={log.id} log={log} id={i} />)
+        logs?.map((log, i) => <LogItem key={i} log={log} />)
       )}
     </ul>
   );
