@@ -1,2 +1,2 @@
 #React app to track IT department tasks and issues. 
-Redux is used to management the state of this application 
+Redux is used to management the state of this application and firebase for the backend
